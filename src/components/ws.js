@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-
-
+import Grid from "./grid";
 
 export class WebSocketTest extends Component {
     constructor(props) {
@@ -81,7 +80,9 @@ export class WebSocketTest extends Component {
     render() {
         return (
             <div>
-                {this.state.message?<p>{this.state.message.data}</p>:null}
+                {this.state.message?<p>{this.state.message.data}</p>:null}  
+                {/* pass doors-data as props to grid  */}
+                <Grid data={this.state.message}/>
                 <WebSocketSend websocket={this.state.ws} />
             </div>
         );
@@ -89,6 +90,9 @@ export class WebSocketTest extends Component {
 
     }
 }
+
+
+// just to test web socket 
 
 class WebSocketSend extends Component {
 
